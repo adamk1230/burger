@@ -1,3 +1,5 @@
+//boilerplate code
+
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
@@ -16,4 +18,5 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
+//exporting to orm.js
 module.exports = connection;

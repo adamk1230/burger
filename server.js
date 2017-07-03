@@ -1,12 +1,13 @@
+//dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var path = require("path");
 
 var port = 3000;
-
 var app = express();
 
+//serves the public directory for access
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: false }));

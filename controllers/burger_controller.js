@@ -1,21 +1,21 @@
 var express = require("express");
-
 var router = express.Router();
 
-// Import the model (cat.js) to use its database functions.
+//import burger.js to use the db functions
 var burger = require("../models/burger.js");
 
-// Create all our routes and set up logic within those routes where required.
+// this is the index/root route
 router.get("/", function(req, res) {
   burger.selectAll(function(data) {
     var hbsObject = {
       burgers: data
     };
-    console.log(hbsObject);
+    
     res.render("index", hbsObject);
   });
 });
 
+//this is the post route, insertOne(object, cb), req.body.name is the name of the new burger taken from the text area
 router.post("/", function(req, res) {
   burger.insertOne(
     {
@@ -28,6 +28,7 @@ router.post("/", function(req, res) {
 
 });
 
+//this is the put rout, updateOne(whatToUpdate, whereToUpdate, cb), when the Devour It! button is clicked dvoured is updated in the database
 router.put("/:id", function(req, res) {
   burger.updateOne(
   {
@@ -41,5 +42,5 @@ router.put("/:id", function(req, res) {
 });
 
 
-// Export routes for server.js to use.
+//exporting to server.js
 module.exports = router;
