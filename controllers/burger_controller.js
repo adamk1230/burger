@@ -17,6 +17,7 @@ router.get("/", function(req, res) {
 
 //this is the post route, insertOne(object, cb), req.body.name is the name of the new burger taken from the text area
 router.post("/", function(req, res) {
+  console.log(req.body);
   burger.insertOne(
     {
       burger_name: req.body.name,
